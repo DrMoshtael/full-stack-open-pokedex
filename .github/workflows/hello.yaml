@@ -14,7 +14,7 @@ jobs:
           echo "Hi User!"
       - name: Now it is
         run: |
-          echo date -R
+          date -R
       - name: Directory content
         run: |
-          echo ls -l
+          ls -l
