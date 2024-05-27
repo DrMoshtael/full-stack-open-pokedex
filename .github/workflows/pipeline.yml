@@ -33,14 +33,14 @@ jobs:
       - name: Trigger deployment
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message),'#skip') }}
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
-      - name: Test Success
+      - name: Test Success Notification
         uses: rjstone/discord-webhook-notify@v1
         if: success()
         with:
             severity: info
             details: Test Succeeded!
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - name: Test Failure
+      - name: Test Failure Notification
         uses: rjstone/discord-webhook-notify@v1
         if: failure()
         with:
